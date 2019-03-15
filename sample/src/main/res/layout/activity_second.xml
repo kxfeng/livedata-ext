@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,25 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Change Data" />
-
-    <Button
-        android:id="@+id/btn_start_activity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Start Activity" />
-
-
-    <Button
-        android:id="@+id/btn_observe"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Observe" />
-
-    <Button
-        android:id="@+id/btn_remove_observer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Remove Observer" />
 
     <ScrollView
         android:layout_width="match_parent"

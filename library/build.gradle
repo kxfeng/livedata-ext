@@ -1,6 +1,9 @@
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
+apply plugin: 'digital.wup.android-maven-publish'
+apply plugin: 'com.jfrog.bintray'
+
+def _version = "0.9.0"
 
 android {
     compileSdkVersion 28
@@ -9,9 +12,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 28
         versionCode 1
-        versionName "0.9.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        versionName "$_version"
     }
 
     buildTypes {
@@ -34,4 +35,37 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     testImplementation "androidx.arch.core:core-testing:2.0.0"
     testImplementation "androidx.lifecycle:lifecycle-runtime:2.0.0"
+}
+
+bintray {
+    user = findProperty('BINTRAY_USER')
+    key = findProperty('BINTRAY_KEY')
+    pkg {
+        repo = 'maven'
+        name = 'livedata-ext'
+        version {
+            name = "$_version"
+            desc = "$_version release"
+            released  = new Date()
+            vcsTag = "$_version"
+        }
+    }
+    publications = ['libraryAar']
+}
+
+task sourceJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier "sources"
+}
+
+publishing {
+    publications {
+        libraryAar(MavenPublication) {
+            from components.android
+            groupId = 'com.github.kxfeng'
+            artifactId = 'livedata-ext'
+            version = "$_version"
+            artifact sourceJar
+        }
+    }
 }

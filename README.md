@@ -1,7 +1,7 @@
 # livedata-ext
 Android LiveData extension, including FreshLiveData and etc.
 
-# Download
+## Download
 
 ```groovy
 repositories {

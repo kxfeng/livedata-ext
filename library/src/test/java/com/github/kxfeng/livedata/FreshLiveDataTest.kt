@@ -10,7 +10,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
 
-class FreshLiveDataKtTest : LifecycleOwner {
+class FreshLiveDataTest : LifecycleOwner {
 
     @get:Rule
     val rule: TestRule = InstantTaskExecutorRule()

@@ -42,7 +42,7 @@ liveData.value = "Hello"
 val freshResult = mutableListOf<String>()
 val normalResult = mutableListOf<String>()
 
-liveData.observeForeverFreshly(Observer<String> {
+liveData.observeForeverFreshly(Observer {
     freshResult.add(it)
 })
 

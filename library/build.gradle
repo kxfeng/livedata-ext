@@ -3,7 +3,11 @@ apply plugin: 'kotlin-android'
 apply plugin: 'digital.wup.android-maven-publish'
 apply plugin: 'com.jfrog.bintray'
 
-def _version = "0.9.0"
+ext {
+    PUBLISH_GROUP_ID = "com.github.kxfeng"
+    PUBLISH_ARTIFACT_ID = 'livedata-ext'
+    PUBLISH_VERSION = '0.9.1'
+}
 
 android {
     compileSdkVersion 28
@@ -12,13 +16,17 @@ android {
         minSdkVersion 14
         targetSdkVersion 28
         versionCode 1
-        versionName "$_version"
+        versionName "0.9.1"
     }
 
     buildTypes {
         release {
             minifyEnabled false
         }
+    }
+
+    compileOptions {
+        kotlinOptions.freeCompilerArgs += ['-module-name', "$PUBLISH_GROUP_ID.$PUBLISH_ARTIFACT_ID"]
     }
 }
 
@@ -42,12 +50,12 @@ bintray {
     key = findProperty('BINTRAY_KEY')
     pkg {
         repo = 'maven'
-        name = 'livedata-ext'
+        name = "$PUBLISH_ARTIFACT_ID"
         version {
-            name = "$_version"
-            desc = "$_version release"
+            name = "$PUBLISH_VERSION"
+            desc = "$PUBLISH_VERSION release"
             released  = new Date()
-            vcsTag = "$_version"
+            vcsTag = "$PUBLISH_VERSION"
         }
     }
     publications = ['libraryAar']
@@ -62,9 +70,9 @@ publishing {
     publications {
         libraryAar(MavenPublication) {
             from components.android
-            groupId = 'com.github.kxfeng'
-            artifactId = 'livedata-ext'
-            version = "$_version"
+            groupId = "$PUBLISH_GROUP_ID"
+            artifactId = "$PUBLISH_ARTIFACT_ID"
+            version = "$PUBLISH_VERSION"
             artifact sourceJar
         }
     }

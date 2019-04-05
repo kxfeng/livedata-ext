@@ -8,7 +8,7 @@ repositories {
     jcenter()
 }
 dependencies {
-    implementation 'com.github.kxfeng:livedata-ext:0.9.0'
+    implementation 'com.github.kxfeng:livedata-ext:0.9.1'
 }
 ```
 
@@ -57,7 +57,7 @@ assertEquals(listOf("Hello", "World"), normalResult)
 ```
 
 - Java usage
-```Java
+```java
 LiveData<String> liveData = new MutableLiveData<>();
 FreshLiveDataKt.observeForeverFreshly(liveData, msg -> {
     System.out.println("Fresh value: " + msg);

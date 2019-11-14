@@ -6,17 +6,17 @@ apply plugin: 'com.jfrog.bintray'
 ext {
     PUBLISH_GROUP_ID = "com.github.kxfeng"
     PUBLISH_ARTIFACT_ID = 'livedata-ext'
-    PUBLISH_VERSION = '0.9.1'
+    PUBLISH_VERSION = '1.0.0'
 }
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
-        versionName "0.9.1"
+        versionName "1.0.0"
     }
 
     buildTypes {
@@ -37,12 +37,12 @@ repositories {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation "androidx.lifecycle:lifecycle-livedata:2.0.0"
+    implementation "androidx.lifecycle:lifecycle-livedata:2.1.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 
     testImplementation 'junit:junit:4.12'
-    testImplementation "androidx.arch.core:core-testing:2.0.0"
-    testImplementation "androidx.lifecycle:lifecycle-runtime:2.0.0"
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
+    testImplementation "androidx.lifecycle:lifecycle-runtime:2.1.0"
 }
 
 bintray {
@@ -63,7 +63,7 @@ bintray {
 
 task sourceJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
-    classifier "sources"
+    archiveClassifier = "sources"
 }
 
 publishing {

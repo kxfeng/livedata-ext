@@ -8,7 +8,7 @@ repositories {
     jcenter()
 }
 dependencies {
-    implementation 'com.github.kxfeng:livedata-ext:0.9.1'
+    implementation 'com.github.kxfeng:livedata-ext:1.0.0'
 }
 ```
 

@@ -1,8 +1,8 @@
 package com.github.kxfeng.livedata
 
+import androidx.lifecycle.ComGithubKxfengLiveDataHiddenApi.version
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.LiveDataHiddenApi.version
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 

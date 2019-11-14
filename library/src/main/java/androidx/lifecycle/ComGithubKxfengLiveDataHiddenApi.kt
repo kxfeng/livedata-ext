@@ -1,6 +1,6 @@
 package androidx.lifecycle
 
-object LiveDataHiddenApi {
+object ComGithubKxfengLiveDataHiddenApi {
     fun LiveData<*>.version(): Int {
         return this.version
     }
